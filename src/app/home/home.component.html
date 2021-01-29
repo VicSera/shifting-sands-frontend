@@ -1,0 +1,12 @@
+<div id="background-top">
+  <button class="generate-button" routerLink="share">
+    I want the sands to bring answers
+  </button>
+</div>
+<div id="background-bottom">
+  <button class="" [routerLink]="getReadLink()">
+    Unveil the secrets of the sands
+  </button>
+  <input class="code-input" type="text" placeholder="Sand code"
+         [maxLength]="maxCodeLength" [(ngModel)]="code">
+</div>

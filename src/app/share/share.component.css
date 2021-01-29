@@ -1,0 +1,23 @@
+.background-top, .background-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50%;
+
+  text-align: center;
+  font-size: 3rem;
+}
+
+.background-top {
+  background-color: #fefae0;
+  top: 0;
+}
+
+.background-bottom {
+  background-color: #e9edc9;
+  bottom: 0;
+}
