@@ -7,8 +7,9 @@ import { ShareComponent } from './share/share.component';
 import { FormComponent } from './form/form.component';
 import { ReadComponent } from './read/read.component';
 import { AppRoutingModule } from './app-routing.module';
-import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {HttpBasicAuthInterceptor} from './service/http-basic-auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -21,9 +22,16 @@ import {FormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpBasicAuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

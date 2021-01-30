@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {FormService} from '../service/form.service';
+import {FormDTO} from '../dto/form-dto';
 
 @Component({
   selector: 'app-share',
@@ -10,12 +14,18 @@ export class ShareComponent implements OnInit {
   writeLink: string;
   readId: string;
 
-  constructor() { }
+  constructor(
+    private formService: FormService
+  ) { }
 
   ngOnInit(): void {
-    this.writeId = '123456';
-    this.writeLink = 'www.shiftingsands.io/form/' + this.writeId;
-    this.readId = '654321';
+    this.formService.getNewForm().subscribe(
+      (formDTO: FormDTO) => {
+        this.writeId = formDTO.writeId;
+        this.readId = formDTO.readId;
+        this.writeLink = 'www.localhost:4200/form/' + this.writeId;
+      }
+    );
   }
 
 }
