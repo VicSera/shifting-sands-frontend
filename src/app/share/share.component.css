@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 
   position: absolute;
   left: 0;
@@ -9,7 +10,10 @@
   height: 50%;
 
   text-align: center;
-  font-size: 3rem;
+}
+
+.background-top *:not(i), .background-bottom *:not(i) {
+  margin: 10px;
 }
 
 .background-top {
@@ -20,4 +24,37 @@
 .background-bottom {
   background-color: #e9edc9;
   bottom: 0;
+}
+
+input {
+  border-radius: 20px;
+  padding: 10px;
+  border: 2px solid grey;
+  text-align: center;
+}
+
+.background-top input {
+  width: 30rem;
+}
+
+.background-bottom input {
+  width: 15rem;
+}
+
+.copy-to-clipboard {
+  position: relative;
+  border-radius: 50%;
+  border: 2px solid grey;
+  padding: 40px;
+}
+
+button:hover {
+  background-color: black;
+  color: grey;
+}
+
+i {
+  position: absolute;
+  font-size: 50px;
+  transform: translate(-50%, -50%);
 }

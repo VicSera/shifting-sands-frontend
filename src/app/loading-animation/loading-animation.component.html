@@ -1,0 +1,12 @@
+<ng-container *ngIf="animating">
+  <div id="background" #background>
+    <svg>
+      <polygon *ngFor="let triangle of triangles"
+               [attr.points]="getPointsFromTriangle(triangle)"
+               [attr.fill]="triangle.color"
+               [attr.opacity]="triangle.opacity"
+      ></polygon>
+    </svg>
+  </div>
+</ng-container>
+

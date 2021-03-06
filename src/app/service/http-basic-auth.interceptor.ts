@@ -18,6 +18,8 @@ export class HttpBasicAuthInterceptor implements HttpInterceptor {
     // window.btoa: text -> hexa
     const basicAuthenticationHeaderString = 'Basic ' + window.btoa(username + ':' + password);
 
+    console.log('Sending request to ' + request.url);
+
     request = request.clone({
       setHeaders : {
         Authorization : basicAuthenticationHeaderString

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AnimatedRoutingService } from '../service/animated-routing.service';
 
 @Component({
   selector: 'app-home',
@@ -9,13 +10,18 @@ export class HomeComponent implements OnInit {
   maxCodeLength = 13;
   code = '';
 
-  constructor() { }
+  constructor(
+    private animatedRoutingService: AnimatedRoutingService
+  ) { }
 
   ngOnInit(): void {
   }
 
   getReadLink(): string {
-    console.log('read/' + this.code);
     return 'read/' + this.code;
+  }
+
+  animateToShareScreen(): void {
+    this.animatedRoutingService.routeWithDelay(['share'], 40000);
   }
 }

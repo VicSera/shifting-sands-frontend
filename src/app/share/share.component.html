@@ -1,8 +1,14 @@
-<div class="background-top">
-  Start the sandstorm:<br>
-  {{ writeLink }}
+<div class="background-top" xmlns="http://www.w3.org/1999/html">
+  <label for="writeLinkInput">Start the sandstorm:</label>
+  <input id="writeLinkInput" #writeLinkInput type="url" readonly [value]="writeLink">
+  <button class="copy-to-clipboard" (click)="copyToClipboard(writeLink)">
+    <i class="far fa-clipboard"></i>
+  </button>
 </div>
 <div class="background-bottom">
-  The trail in the sands is:<br>
-  {{ readId }}
+  <label for="readIdInput">The trail in the sands is:</label>
+  <input id="readIdInput" #readIdInput type="text" readonly [value]="readId">
+  <button class="copy-to-clipboard" (click)="copyToClipboard(writeLink)">
+    <i class="far fa-clipboard"></i>
+  </button>
 </div>
